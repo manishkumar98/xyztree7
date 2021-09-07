@@ -1,2 +1,2 @@
-# xyztree7
+# StaticTree1
 Created with CodeSandbox
