@@ -183,13 +183,19 @@ function reducers(state = data, action) {
         len2 = parent.children.length;
         var f = 0;
         var x = 0;
-        for (x = 0; x < len2; x++) {
-          if (parent.children[x].id !== action.id.id) {
-            f = 1;
-            newChildren &&
-              newChildren.splice(newChildren.length, 0, parent.children[x]);
+        if (len2 === 1) {
+          f = 1;
+          newChildren.pop();
+        } else {
+          for (x = 0; x < len2; x++) {
+            if (parent.children[x].id !== action.id.id) {
+              f = 1;
+              newChildren &&
+                newChildren.splice(newChildren.length, 0, parent.children[x]);
+            }
           }
         }
+
         if (f === 1) {
           parent.children = newChildren;
           break;
